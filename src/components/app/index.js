@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from '../../components/table'
+import Navbar from '../../components/navbar'
 
 class App extends Component {
   
@@ -7,8 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         
-        <header className="App-header">
-          <p>Testing text message</p>
+        <header>
+          <Navbar />
         </header>
         
         <main className="container">
