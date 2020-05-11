@@ -1,8 +1,9 @@
 import React from 'react';
+import './style.css'
 
 const Navbar = ()=>{
     return(
-        <nav className="navbar navbar-light bg-info mb-4">
+        <nav className="navbar navbar-light bg-info mb-4 custom-nav">
             <div className="container">
                 <h1 className="navbar-brand text-light" href="/">Employee Directory</h1>
                 <form className="form-inline">
