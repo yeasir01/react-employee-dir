@@ -1,23 +1,31 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import './style.css'
-
+import Loader from '../loading'
+import ErrorAlert from '../error'
+import TableRows from './table-rows'
 
 class Table extends Component {
     state = {
         data: [],
         count: 0,
-        isLoading: true
+        isLoading: true,
+        error: ""
     };
-
 
     componentDidMount() {
         Axios
-        .get('https://randomuser.me/api/?seed=employee&results=30&nat=us')
+        .get('https://randomuser.me/api/?seed=employee&results=50&nat=us')
         .then(res => {
             this.setState({
             data: res.data.results, 
-            count: res.data.results.length
+            count: res.data.results.length,
+            isLoading: false,
+            error: ""
+            })
+        }).catch(err =>{ 
+            this.setState({
+            isLoading: false,
+            error: err.message
             })
         })
     };
@@ -26,30 +34,21 @@ class Table extends Component {
         return (
             <div className="row">
                 <div className="col">
-                    <table className="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col" className="text-secondary">First</th>
-                                <th scope="col" className="text-secondary">Last</th>
-                                <th scope="col" className="text-secondary">Email</th>
-                                <th scope="col" className="text-secondary">Cell</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.data.map(emp => {
-                                    return(
-                                        <tr className="cursor">
-                                            <th scope="row"><img id="thumbnail" src={emp.picture.thumbnail} alt="employee pic"/></th>
-                                            <td className="align-middle">{emp.name.first}</td>
-                                            <td className="align-middle">{emp.name.last}</td>
-                                            <td className="align-middle">{emp.email}</td>
-                                            <td className="align-middle">{emp.cell}</td>
-                                        </tr>
-                                    )
-                            })}
-                        </tbody>
-                    </table>
+                    {
+                     this.state.isLoading === true
+                     &&
+                    <Loader />
+                    }
+                    {
+                    this.state.error !== ""
+                    &&
+                    <ErrorAlert error={this.state.error}/>
+                    }
+                    {
+                    this.state.isLoading === false && this.state.count !== 0
+                    &&
+                    <TableRows stateData={this.state}/>
+                    }
                 </div>
             </div>
         )
