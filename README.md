@@ -4,7 +4,7 @@ An app used to manage & sort your company's employee directory.
 ## Table of contents
 * [Installation](#Installation)
 * [Technologies](#Technologies)
-* [FutureDevelopment](#FuturDevelopment)
+* [FutureDevelopment](#FutureDevelopment)
 * [Working Demo](#Technologies)
 * [License](#License)
 ## Installation
