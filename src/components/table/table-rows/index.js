@@ -11,16 +11,16 @@ class TableRows extends Component{
                         <tr>
                             <th scope="col"></th>
                             <th scope="col" className="text-secondary">
-                                First <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy(".name.first")}></i>
+                                First <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy('first')}></i>
                             </th>
                             <th scope="col" className="text-secondary">
-                                Last <i className="fas fa-sort cursor"></i>
+                                Last <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy('last')}></i>
                             </th>
                             <th scope="col" className="text-secondary">
-                                Email <i className="fas fa-sort cursor"></i>
+                                Email
                             </th>
                             <th scope="col" className="text-secondary">
-                                Cell <i className="fas fa-sort cursor"></i>
+                                Cell
                             </th>
                         </tr>
                     </thead>

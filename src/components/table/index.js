@@ -12,7 +12,7 @@ class Table extends Component {
                 count: 0,
                 isLoading: true,
                 error: "",
-                columnToSort: "",
+                search: "",
                 directionOfSort: "descending"
             };
         this.sortBy = this.sortBy.bind(this);
@@ -37,40 +37,35 @@ class Table extends Component {
     };
 
     sortBy(title) {
-        const newArray = [...this.state.data]
+        const newArray = [...this.state.data];
 
         if(this.state.directionOfSort === "descending"){
-            const sortedData = newArray.sort((a, b) => {
-                if(a.name.first < b.name.first){
-                    return -1;
-                }
-                if (a.name.first > b.name.first) {
-                    return 1;
-                }
+            let sortedData = newArray.sort((a, b) => {
+                if(a.name[title] < b.name[title]) return -1;
+                if (a.name[title] > b.name[title]) return 1;
                 return 0;
             })
             this.setState({
-                data: sortedData, 
-                columnToSort: "first", 
+                data: sortedData,
                 directionOfSort: "ascending"
             })
         } else {
-            const sortedData = newArray.sort((a, b) => {
-                if(a.name.first > b.name.first){
-                    return -1;
-                }
-                if (a.name.first < b.name.first) {
-                    return 1;
-                }
+            let sortedData = newArray.sort((a, b) => {
+                if(a.name[title] > b.name[title]) return -1;
+                if (a.name[title] < b.name[title]) return 1;
                 return 0;
             })
             this.setState({
-                data: sortedData, 
-                columnToSort: "first", 
+                data: sortedData,
                 directionOfSort: "descending"
             })
         }
     };
+
+    handleInputChange(event){
+        let query = event.target.value;
+        this.setState({search: query})
+    }
 
     render(){
         return (

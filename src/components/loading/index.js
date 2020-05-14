@@ -1,11 +1,11 @@
 import React from 'react';
-import LoadImg from './load.gif'
-import './style.css'
 
 const Loader = () => {
     return (
-        <div className="text-center">
-            <img className="load-img" src={LoadImg} alt="loading" />
+        <div class="d-flex justify-content-center">
+            <div className="spinner-border text-primary " style={{width: "3rem", height: "3rem"}} role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
         </div>
     )
 }
