@@ -4,7 +4,7 @@ import './style.css'
 
 const Loader = () => {
     return (
-        <div class="text-center">
+        <div className="text-center">
             <img className="load-img" src={LoadImg} alt="loading" />
         </div>
     )
