@@ -17,10 +17,10 @@ class TableRows extends Component{
                                 Last <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy('last')}></i>
                             </th>
                             <th scope="col" className="text-secondary">
-                                Email
+                                Email <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy('email')}></i>
                             </th>
                             <th scope="col" className="text-secondary">
-                                Cell
+                                Cell <i className="fas fa-sort cursor" onClick={()=>this.props.sort.sortBy('cell')}></i>
                             </th>
                         </tr>
                     </thead>

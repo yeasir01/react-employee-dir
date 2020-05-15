@@ -39,27 +39,52 @@ class Table extends Component {
     sortBy(title) {
         const newArray = [...this.state.data];
 
-        if(this.state.directionOfSort === "descending"){
-            let sortedData = newArray.sort((a, b) => {
-                if(a.name[title] < b.name[title]) return -1;
-                if (a.name[title] > b.name[title]) return 1;
-                return 0;
-            })
-            this.setState({
-                data: sortedData,
-                directionOfSort: "ascending"
-            })
+        if(title === 'first'|| title === "last"){
+            if(this.state.directionOfSort === "descending"){
+                let sortedData = newArray.sort((a, b) => {
+                    if(a.name[title] < b.name[title]) return -1;
+                    if (a.name[title] > b.name[title]) return 1;
+                    return 0;
+                })
+                this.setState({
+                    data: sortedData,
+                    directionOfSort: "ascending"
+                })
+            } else {
+                let sortedData = newArray.sort((a, b) => {
+                    if(a.name[title] > b.name[title]) return -1;
+                    if (a.name[title] < b.name[title]) return 1;
+                    return 0;
+                })
+                this.setState({
+                    data: sortedData,
+                    directionOfSort: "descending"
+                })
+            }
         } else {
-            let sortedData = newArray.sort((a, b) => {
-                if(a.name[title] > b.name[title]) return -1;
-                if (a.name[title] < b.name[title]) return 1;
-                return 0;
-            })
-            this.setState({
-                data: sortedData,
-                directionOfSort: "descending"
-            })
+            if(this.state.directionOfSort === "descending"){
+                let sortedData = newArray.sort((a, b) => {
+                    if(a[title] < b[title]) return -1;
+                    if (a[title] > b[title]) return 1;
+                    return 0;
+                })
+                this.setState({
+                    data: sortedData,
+                    directionOfSort: "ascending"
+                })
+            } else {
+                let sortedData = newArray.sort((a, b) => {
+                    if(a[title] > b[title]) return -1;
+                    if (a[title] < b[title]) return 1;
+                    return 0;
+                })
+                this.setState({
+                    data: sortedData,
+                    directionOfSort: "descending"
+                })
+            }
         }
+
     };
 
     handleInputChange(event){
