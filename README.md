@@ -1,6 +1,6 @@
 
 # React Employee Directory App
-An app used to manage & sort your company's employee directory.
+An app used to sort & filter your company's employee directory.
 ## Table of contents
 * [Installation](#Installation)
 * [Technologies](#Technologies)
@@ -17,9 +17,11 @@ or Run from browser by clicking link below.
 * HTML
 * CSS
 * Bootstrap
+* Random User API
 ## FutureDevelopment
-* Build live search functionality.
+* ~~Build live search functionality.~~ Added 5/17/20
 * Create a modal to display more info when a user is clicked.
+* Better layout for mobile devices.
 ## Working Demo
 [https://yeasir01.github.io/react-employee-dir/](https://yeasir01.github.io/react-employee-dir/)
 ## License
